@@ -10,7 +10,36 @@ public class ListLab {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Nothing to do here!");
-        System.out.println("Check your implementation via the test suite.");
+        
+        ArrayList newArr = new ArrayList();
+        
+        newArr.add(1);
+        newArr.add(2);
+        
+        System.out.println(newArr.get(0));
+        System.out.println(newArr.get(1));
+        
+        System.out.println(newArr.size());
+        
+        newArr.remove(1);
+        
+        System.out.println(newArr.get(0));
+        System.out.println(newArr.get(1));
+        
+        
+        
+        LinkedList LL = new LinkedList();
+        
+        LL.add(1);
+        LL.add(2);
+        
+        System.out.println(LL.get(0));
+        System.out.println(LL.get(1));
+        
+        System.out.println(LL.size());
+        
+        LL.remove(1);
+        
+        System.out.println(LL.get(0));
     }
 }

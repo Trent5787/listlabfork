@@ -1,23 +1,45 @@
 package edu.grinnell.csc207.listlab;
 
+import java.util.Arrays;
+
 /**
  * An array-based implementation of the list ADT.
  */
 public class ArrayList {
+    
+    private int[] data;
+    private int size;
+    private int cur;
+    
+    public ArrayList(){
+        this.size = 10;
+        this.data = new int [size];
+        this.cur = 0;
+    }
+    
     /**
      * Adds <code>value</code> to the end of the list
      * 
      * @param value the value to add to the end of the list
      */
     public void add(int value) {
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        if (cur == size){
+            data = Arrays.copyOf(data, size*2);
+            data[cur] = value;
+            cur++;
+        }
+        else {
+            data[cur] = value;
+            cur++;
+        }
     }
 
     /**
      * @return the number of elements in the list
      */
     public int size() {
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return cur;
+    
     }
 
     /**
@@ -25,7 +47,12 @@ public class ArrayList {
      * @return the value at the specified <code>index</code>
      */
     public int get(int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'get'");
+        if (index < cur) {
+            return(data[index]);
+        } else {
+            return(-1);
+        }
+        
     }
 
     /**
@@ -35,6 +62,11 @@ public class ArrayList {
      * @return the element at <code>index</code>
      */
     public int remove(int index) {
-        throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        int temp = get(index);
+        while(index != cur) {
+            data[index] = data[index+1];
+            index++;
+        }
+        return(temp);
     }
 }
