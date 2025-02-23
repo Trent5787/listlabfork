@@ -24,7 +24,8 @@ public class ArrayList {
      */
     public void add(int value) {
         if (cur == size){
-            data = Arrays.copyOf(data, size*2);
+            size *= 2;
+            data = Arrays.copyOf(data, size);
             data[cur] = value;
             cur++;
         }
